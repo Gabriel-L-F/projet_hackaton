@@ -1,5 +1,5 @@
 // src/app/page.tsx
-import Header from "../components/Header"; // Vérifiez bien le chemin relatif
+import Header from "../components/Header/Header"; // Vérifiez bien le chemin relatif
 
 export default function Page() {
   return (
@@ -7,7 +7,7 @@ export default function Page() {
       <Header />
       <main>
         <h1>FitNexus</h1>
-        <p>Votre site de suivi sportif personnalisé</p>
+        <p>Votre site de suivi sportif</p>
       </main>
     </>
   );

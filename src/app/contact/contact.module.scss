@@ -1,0 +1,98 @@
+$primary-black: #000000;
+$bg-light: #ffffff;
+$card-bg: #f4f4f4;
+$border-color: #ccc;
+$shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  padding: 20px;
+
+  .formCard {
+    background-color: $card-bg;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: $shadow lighten $card-bg 10%;
+    width: 500px;
+
+    .title {
+      text-align: center;
+      margin-bottom: 10px;
+      color: $primary-black;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .subtitle {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 14px;
+      color: #333333;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      .inputGroup {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        label {
+          color: $primary-black !important;
+          font-weight: 600;
+          font-size: 14px;
+        }
+
+        input,
+        select,
+        textarea {
+          padding: 12px;
+          border-radius: 8px;
+          border: 1px solid $border-color;
+          font-size: 16px;
+          color: $primary-black;
+          background-color: $bg-light;
+          outline: none;
+
+          &:focus {
+            border-color: $primary-black;
+          }
+        }
+
+        textarea {
+          resize: none;
+        }
+      }
+
+      .button {
+        background-color: $primary-black;
+        color: $bg-light;
+        padding: 15px;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        margin-top: 10px;
+        transition:
+          transform 0.2s,
+          opacity 0.2s;
+
+        &:hover {
+          opacity: 0.8;
+          transform: translateY(-2px);
+        }
+
+        &:active {
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+}
