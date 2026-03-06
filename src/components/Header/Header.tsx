@@ -1,4 +1,3 @@
-// src/components/Header/Header.tsx
 import styles from "./Header.module.scss";
 import Link from "next/link";
 
