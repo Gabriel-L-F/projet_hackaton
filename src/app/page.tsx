@@ -18,11 +18,11 @@ export default async function Page() {
         <p>Votre site de suivi sportif</p>
       </main>
 
-      <Footer />
-    </>
     <div>
       <h1>Nouvelle Séance</h1>
       <WorkoutForm exercicesInitial={exercices} />
     </div>
+      <Footer />
+    </>
   );
 }
