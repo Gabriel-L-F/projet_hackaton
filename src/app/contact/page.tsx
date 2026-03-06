@@ -1,5 +1,6 @@
 // src/app/contact/page.tsx
 import Header from "../../components/Header/Header"; // Vérifiez bien le chemin relatif
+import Footer from "../../components/Footer/Footer"; // Import du Footer
 import styles from "./contact.module.scss"; // Import du fichier SCSS
 
 export default function ContactPage() {
@@ -53,6 +54,7 @@ export default function ContactPage() {
           </form>
         </div>
       </main>
+      <Footer />
     </>
   );
 }

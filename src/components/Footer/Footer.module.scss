@@ -1,0 +1,79 @@
+/* Couleurs demandées */
+$bg-black: #000000;
+$blue-next: #0070f3;
+$text-light: #ffffff;
+$text-dim: #888888;
+$border-dark: #333333;
+
+.footer {
+  background-color: $bg-black;
+  color: $text-light;
+  padding: 50px 20px;
+  border-top: 1px solid $border-dark;
+  font-family: sans-serif;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+
+    span {
+      color: $blue-next; /* Changé en Bleu */
+    }
+  }
+
+  .colonne {
+    h4 {
+      margin-bottom: 20px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: $blue-next; /* Changé en Bleu */
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li {
+        margin-bottom: 12px;
+
+        a {
+          color: $text-dim;
+          text-decoration: none;
+          font-size: 14px;
+          transition: color 0.2s;
+
+          &:hover {
+            color: $text-light;
+          }
+        }
+      }
+    }
+  }
+
+  .creators {
+    color: $text-dim;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .copyright {
+    width: 100%;
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid $border-dark;
+    color: #666666;
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+}
