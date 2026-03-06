@@ -1,0 +1,121 @@
+// Variables
+$bg-black: #000000;
+$bg-input: #111111;
+$blue-next: #0070f3;
+$blue-hover: #0056b3;
+$error-red: #ff4d4d;
+$border-color: #333333;
+$text-light: #ffffff;
+$text-dim: #888888;
+$white: #ffffff;
+
+// Conteneur pour centrer le formulaire sur la page
+.pageCenter {
+  display: flex;
+  justify-content: center; // Centre horizontalement
+  align-items: center; // Centre verticalement
+  min-height: 80vh; // Hauteur pour que le centrage soit visible
+  padding: 20px;
+  background-color: $bg-black;
+}
+
+.formWrapper {
+  width: 100%;
+  max-width: 800px;
+  background-color: #050505;
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid $border-color;
+}
+
+.workoutForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  h1 {
+    color: $white;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-transform: uppercase;
+    span {
+      color: $blue-next;
+    }
+  }
+
+  label {
+    display: block;
+    font-size: 14px;
+    color: $text-dim;
+    margin-bottom: 8px;
+  }
+
+  input,
+  select {
+    width: 100%;
+    padding: 12px;
+    background: $bg-input;
+    border: 1px solid $border-color;
+    border-radius: 8px;
+    color: $white;
+    &:focus {
+      outline: none;
+      border-color: $blue-next;
+    }
+  }
+
+  .exerciceRow {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr auto;
+    gap: 10px;
+    align-items: center;
+    background: rgba($white, 0.02);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+
+    @media (max-width: 600px) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .btnDelete {
+    background: rgba($error-red, 0.1);
+    color: $error-red;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    &:hover {
+      background: $error-red;
+      color: white;
+    }
+  }
+
+  .btnAdd {
+    background: transparent;
+    border: 1px dashed $blue-next;
+    color: $blue-next;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    &:hover {
+      background: rgba($blue-next, 0.1);
+    }
+  }
+
+  .btnSubmit {
+    background: $blue-next;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    &:hover {
+      background: $blue-hover;
+    }
+  }
+}

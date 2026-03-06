@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Mar 04, 2026 at 10:04 AM
+-- Generation Time: Mar 06, 2026 at 09:34 AM
 -- Server version: 8.4.3
 -- PHP Version: 8.3.26
 
@@ -67,6 +67,13 @@ CREATE TABLE `seance` (
   `date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+--
+-- Dumping data for table `seance`
+--
+
+INSERT INTO `seance` (`id`, `nom`, `date`) VALUES
+(1, 'Lefebvre', '2026-03-06 00:00:00');
+
 -- --------------------------------------------------------
 
 --
@@ -77,8 +84,19 @@ CREATE TABLE `seance_exercice` (
   `id` int NOT NULL,
   `seance_id` int NOT NULL,
   `exercice_id` int NOT NULL,
-  `ordre` int DEFAULT '1'
+  `ordre` int DEFAULT '1',
+  `nb_series` int DEFAULT '0',
+  `nb_reps` int DEFAULT '0',
+  `poids` decimal(5,2) DEFAULT '0.00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `seance_exercice`
+--
+
+INSERT INTO `seance_exercice` (`id`, `seance_id`, `exercice_id`, `ordre`, `nb_series`, `nb_reps`, `poids`) VALUES
+(1, 1, 3, 1, 4, 12, 30.00),
+(2, 1, 1, 2, 4, 6, 32.00);
 
 --
 -- Indexes for dumped tables
@@ -118,13 +136,13 @@ ALTER TABLE `exercice`
 -- AUTO_INCREMENT for table `seance`
 --
 ALTER TABLE `seance`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `seance_exercice`
 --
 ALTER TABLE `seance_exercice`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables

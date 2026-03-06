@@ -1,98 +1,179 @@
-$primary-black: #000000;
-$bg-light: #ffffff;
-$card-bg: #f4f4f4;
-$border-color: #ccc;
-$shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+// Variables du thème FitNexus
+$blue-next: #0070f3;
+$blue-light: #00d4ff;
+$bg-black: #000000;
+$bg-input: rgba(20, 20, 20, 0.8); // Plus sombre et transparent
+$border-color: #333333;
+$text-light: #ffffff;
+$text-dim: #888888;
+$white: #ffffff;
+$shadow-glow: 0 10px 40px rgba(0, 112, 243, 0.3);
 
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 90vh;
-  padding: 20px;
+  min-height: 100vh; // Prend toute la hauteur
+  padding: 40px 20px;
+  position: relative; // Obligatoire pour le ::before
+  background-color: $bg-black; // Fond de secours
+  overflow: hidden;
+
+  // --- L'IMAGE DE FOND SOMBRE (Effet Nexus) ---
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    // CHANGE LE NOM DE L'IMAGE ICI SI BESOIN
+    background-image: url("/contact.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    // Filtre pour la lisibilité (crucial)
+    opacity: 0.25; // Image très discrète
+    filter: grayscale(100%) brightness(40%); // Noir & Blanc et sombre
+
+    z-index: 0; // Derrière tout le contenu
+  }
 
   .formCard {
-    background-color: $card-bg;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: $shadow lighten $card-bg 10%;
-    width: 500px;
+    // Glassmorphism effect
+    background-color: rgba(10, 10, 10, 0.7); // Très transparent
+    backdrop-filter: blur(12px); // Flou prononcé derrière la carte
+    -webkit-backdrop-filter: blur(12px);
+
+    padding: 50px 40px;
+    border-radius: 20px;
+    border: 1px solid rgba($border-color, 0.5); // Bordure subtile
+    box-shadow: $shadow-glow;
+    width: 100%;
+    max-width: 520px;
+    position: relative;
+    z-index: 10; // Passe DEVANT l'image (::before)
+
+    // Petite animation d'entrée
+    animation: fadeInScale 0.6s ease-out;
 
     .title {
       text-align: center;
-      margin-bottom: 10px;
-      color: $primary-black;
-      font-size: 24px;
-      font-weight: bold;
+      margin-bottom: 15px;
+      color: $text-light;
+      font-size: 32px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: -1.5px;
+
+      span {
+        color: $blue-next;
+        text-shadow: 0 0 20px rgba($blue-next, 0.6);
+      }
     }
 
     .subtitle {
       text-align: center;
-      margin-bottom: 30px;
-      font-size: 14px;
-      color: #333333;
+      margin-bottom: 35px;
+      font-size: 15px;
+      color: $text-dim;
+      font-style: italic;
+      max-width: 80%;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .form {
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 25px; // Plus d'espace entre les champs
 
       .inputGroup {
         display: flex;
         flex-direction: column;
-        gap: 8px;
+        gap: 10px;
 
         label {
-          color: $primary-black !important;
-          font-weight: 600;
+          color: $text-dim !important;
+          font-weight: 500;
           font-size: 14px;
+          transition: color 0.3s;
+          padding-left: 5px;
         }
 
         input,
         select,
         textarea {
-          padding: 12px;
-          border-radius: 8px;
-          border: 1px solid $border-color;
+          padding: 14px;
+          border-radius: 10px;
+          border: 1px solid rgba($border-color, 0.8);
           font-size: 16px;
-          color: $primary-black;
-          background-color: $bg-light;
+          color: $text-light;
+          background-color: $bg-input;
           outline: none;
+          transition: all 0.3s ease;
+
+          &::placeholder {
+            color: #444;
+          }
 
           &:focus {
-            border-color: $primary-black;
+            border-color: $blue-next;
+            background-color: rgba(15, 15, 15, 0.9);
+            box-shadow: 0 0 15px rgba($blue-next, 0.2);
+
+            // Colore le label associé quand l'input a le focus
+            & + label {
+              color: $blue-next !important;
+            }
           }
         }
 
         textarea {
           resize: none;
+          min-height: 120px;
         }
       }
 
       .button {
-        background-color: $primary-black;
-        color: $bg-light;
-        padding: 15px;
+        background: linear-gradient(90deg, $blue-next, $blue-light, $white);
+        background-size: 200% auto; // Pour l'animation au hover
+        color: $white;
+        padding: 16px;
         border: none;
-        border-radius: 8px;
+        border-radius: 10px;
         font-size: 16px;
-        font-weight: bold;
+        font-weight: 700;
         cursor: pointer;
-        margin-top: 10px;
-        transition:
-          transform 0.2s,
-          opacity 0.2s;
+        margin-top: 15px;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        transition: all 0.4s ease;
+        box-shadow: 0 5px 20px rgba($blue-next, 0.4);
 
         &:hover {
-          opacity: 0.8;
-          transform: translateY(-2px);
+          background-position: right center; // Décale le dégradé
+          transform: translateY(-3px);
+          box-shadow: 0 8px 25px rgba($blue-next, 0.6);
         }
 
         &:active {
-          transform: translateY(0);
+          transform: translateY(-1px);
         }
       }
     }
+  }
+}
+
+// Animations
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
   }
 }
