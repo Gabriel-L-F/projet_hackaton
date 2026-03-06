@@ -27,7 +27,6 @@ export default async function Page() {
           <WorkoutForm exercicesInitial={exercices} />
         </div>
       </main>
-
       <Footer />
     </div>
   );
